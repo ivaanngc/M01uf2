@@ -26,7 +26,7 @@ echo "5. COMPROBANDO PREFIJO"
 
 PREFIX=`echo "$DATA" | cut -d ' ' -f 1`
 
-if [ "$PREFIX" !="FILE_NAME" ]
+if [ "$PREFIX" != "FILE_NAME" ]
 then
 	echo "ERROR 2: Prefijo incorrecto"
 	echo "KO_FILE_NAME" | nc localhost $PORT
@@ -36,3 +36,10 @@ fi
 echo "6. ENVIANDO OK_FILE_NAME"
 
 echo "OK_FILE_NAME" | nc localhost $PORT
+
+DATA=`nc -l $PORT`
+
+echo "9. RECIBIMOS Y ALMACENAMOS DATOS"
+
+
+echo "$DATA" > server/dragon.txt

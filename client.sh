@@ -27,6 +27,14 @@ echo "7. RECIBIENDO COMPROBACION FILE_NAME"
 
 DATA=`nc -l $PORT`
 
-if [ "$DATA" !="OK_FILE_NAME" ]
+if [ "$DATA" != "OK_FILE_NAME" ]
 then
-	echo "ERROR 2:
+	echo "ERROR 2: Prefijo de archivo incorrecto"
+	exit 2
+fi
+
+echo "8. ENVIAMOS EL CONTENIDO DEL ARCHIVO"
+
+cat client/dragon.txt | nc localhost $PORT
+
+
