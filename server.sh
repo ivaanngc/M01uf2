@@ -36,5 +36,3 @@ fi
 echo "6. ENVIANDO OK_FILE_NAME"
 
 echo "OK_FILE_NAME" | nc localhost $PORT
-
-

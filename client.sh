@@ -9,6 +9,8 @@ echo "DMAM" | nc 127.0.0.1 $PORT
 
 DATA=`nc -l $PORT`
 
+echo "3. COMPROBANDO HEADER"
+
 if [ "$DATA" != "OK_HEADER" ]
 then
 	echo "ERROR 1: El header se envió incorrectamente"
@@ -21,8 +23,10 @@ FILE_NAME="dragon.txt"
 
 echo "FILE_NAME $FILE_NAME" | nc localhost $PORT
 
+echo "7. RECIBIENDO COMPROBACION FILE_NAME"
+
 DATA=`nc -l $PORT`
 
 if [ "$DATA" !="OK_FILE_NAME" ]
 then
-	echo "ERROR 2: 
+	echo "ERROR 2:
